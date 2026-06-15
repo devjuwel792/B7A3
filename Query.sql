@@ -127,3 +127,6 @@ left Join Bookings b on b.user_id = u.user_id;
 -- Query 6: Find all ticket bookings where the total cost is strictly higher than the average cost of all ticket bookings.
 select booking_id, match_id, total_cost from Bookings 
 where total_cost > (select avg(total_cost) from Bookings);
+
+--Query 7: Retrieve the top 2 most expensive matches sorted by base ticket price, skipping the absolute highest premium match
+select match_id ,fixture,base_ticket_price from Matches  limit 2 offset 1; 
