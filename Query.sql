@@ -119,3 +119,8 @@ select booking_id,user_id,match_id,COALESCE(payment_status,'Action Required')  f
 select b.booking_id ,u.full_name ,m.fixture ,b.total_cost from Bookings b
 Join Users u on u.user_id = b.user_id
 Join Matches m on m.match_id = b.match_id;
+
+--Query 5: Display a comprehensive list of all users and their booking IDs, ensuring that fans who have never bought a ticket are still listed.
+select u.user_id,u.full_name,b.booking_id from Users u
+left Join Bookings b on b.user_id = u.user_id;
+
